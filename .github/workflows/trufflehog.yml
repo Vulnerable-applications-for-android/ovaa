@@ -23,5 +23,5 @@ jobs:
           path: ./
           base: ${{ github.event.repository.default_branch }}
           head: HEAD
-          args: --debug
-          since-commit: dcda0a991997bdadb940e1f38f412145853ea4c2
+          args: --debug --since-commit=dcda0a991997bdadb940e1f38f412145853ea4c2
+          
