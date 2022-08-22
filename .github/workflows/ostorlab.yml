@@ -18,7 +18,7 @@ jobs:
       
       - name: Launch Ostorlab scan
         id: start_scan
-        uses: Ostorlab/ostorlab_actions@v1.0.1
+        uses: Ostorlab/ostorlab_actions@de9e694274bcecdaea6c7169e24fe74bc1b483c6
         with:
           scan_profile: fast_scan 
           asset_type: android-apk 
