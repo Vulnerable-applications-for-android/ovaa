@@ -1,0 +1,33 @@
+name: OSTORLAB
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]  
+  schedule:
+    - cron: '39 8 * * 0'
+
+permissions:
+  contents: read
+
+jobs:
+   ostorlab_test:
+    permissions:
+      contents: read # for actions/checkout to fetch code
+      security-events: write # for github/codeql-action/upload-sarif to upload SARIF results
+    runs-on: ubuntu-latest
+   	name: Test ostorlab ci actions.
+   	steps:
+   	 - uses: actions/checkout@v2
+   	 - name: Launch Ostorlab scan
+   	   id: start_scan
+   	   uses: actions/ostorlab_actions@v1
+   		with:
+   		 scan_profile: fast_scan 
+   		 asset_type: android-apk 
+   		 target: andoird_apk.apk
+   		 can_title: title_scan_ci
+   		 ostorlab_api_key: ${{ secrets.ostorlab_api_key }} # your secret api key.
+   		 break_on_risk_rating: HIGH 
+   		 max_wait_minutes: 20 
