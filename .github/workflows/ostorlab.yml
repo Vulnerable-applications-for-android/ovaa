@@ -34,8 +34,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Test ostorlab ci actions.
     steps:
-      - uses: actions/checkout@v2
-      
       - name: Launch Ostorlab scan
         id: start_scan
         uses: Ostorlab/ostorlab_actions@de9e694274bcecdaea6c7169e24fe74bc1b483c6
